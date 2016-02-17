@@ -18,7 +18,9 @@ public class Muro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		KillOnAnimationEnd ();
+		if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName ("DestruccionMuro") == true) {
+			StartCoroutine (KillOnAnimationEnd());
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
