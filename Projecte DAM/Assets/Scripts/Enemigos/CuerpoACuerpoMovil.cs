@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 
 public class CuerpoACuerpoMovil : MonoBehaviour {
 
 	private Rigidbody2D torretaMovil;
 	private Transform player;
+	private TextMesh puntuacionText;
+	private int puntuacion;
+
 	public float velocidad;
 
 	// Use this for initialization
@@ -46,5 +51,9 @@ public class CuerpoACuerpoMovil : MonoBehaviour {
 	private IEnumerator KillOnAnimationEnd() {
 		yield return new WaitForSeconds (0.167f);
 		Destroy (gameObject);
+		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+		puntuacion = Convert.ToInt32(puntuacionText.text);
+		puntuacion = puntuacion + 5;
+		puntuacionText.text = puntuacion+"";
 	}
 }

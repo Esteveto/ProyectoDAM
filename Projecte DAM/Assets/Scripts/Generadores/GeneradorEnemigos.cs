@@ -18,12 +18,13 @@ public class GeneradorEnemigos : MonoBehaviour {
 	}
 
 	void Generar(){
-		float randX = Random.Range (-90f, 85f);
-		float randY = Random.Range (-30f, 35f);
+		float randX = Random.Range (-80f, 75f);
+		float randY = Random.Range (-25f, 30f);
+		float randRotationZ = Random.Range (0f, 360f);
 
 		Vector3 randomPosition = new Vector3 (randX,randY,-5.5f);
 
-		Instantiate (enemigos [Random.Range (0, enemigos.Length)], randomPosition, Quaternion.identity);
+		Instantiate (enemigos [Random.Range (0, enemigos.Length)], randomPosition, Quaternion.Euler (0f, 0f, randRotationZ));
 		Invoke("Generar", Random.Range(tiempoMin, tiempoMax));
 	}
 }

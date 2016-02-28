@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Threading;
+using System;
 
 public class Bala : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class Bala : MonoBehaviour {
 	private SpriteRenderer explosionRender;
 	private GameObject explosion;
 	private Animator animExplosion;
+	private TextMesh puntuacionText;
+	private int puntuacion;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +35,10 @@ public class Bala : MonoBehaviour {
 		if (animExplosion.GetCurrentAnimatorStateInfo (0).IsName ("ExplosionBala") == true) {
 			//Thread.Sleep (75);
 			Destroy (this.gameObject);
+			/*puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+			puntuacion = Convert.ToInt32(puntuacionText.text);
+			puntuacion = puntuacion + 1;
+			puntuacionText.text = puntuacion+"";*/
 		}
 	}
 }

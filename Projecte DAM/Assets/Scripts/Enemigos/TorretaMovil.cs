@@ -15,8 +15,6 @@ public class TorretaMovil : MonoBehaviour {
 	void Start () {
 		torretaMovil = this.GetComponent<Rigidbody2D> ();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-
-
 	}
 	
 	// Update is called once per frame
@@ -46,7 +44,7 @@ public class TorretaMovil : MonoBehaviour {
 		Destroy (gameObject);
 		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
 		puntuacion = Convert.ToInt32(puntuacionText.text);
-		puntuacion = puntuacion + 10;
+		puntuacion = puntuacion + 20;
 		puntuacionText.text = puntuacion+"";
 	}
 }

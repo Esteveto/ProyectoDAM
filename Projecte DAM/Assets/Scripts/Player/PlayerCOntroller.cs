@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
+using System;
 
 public class PlayerCOntroller : MonoBehaviour {
 
 	public float moveForce = 5;
 	public int fuerzaAvance = 10;
-	Rigidbody2D myBody;
-	Animator anim;
-	Vector2 actualPos;
-	Vector2 avancePos=new Vector2(0f,0f);
-	int limitadorboton = 0;
-	int limitadorboton2 = 0;
+	private Rigidbody2D myBody;
+	private Animator anim;
+	private Vector2 actualPos;
+	private Vector2 avancePos=new Vector2(0f,0f);
+	private int limitadorboton = 0;
+	private int limitadorboton2 = 0;
+	private TextMesh puntuacionText;
+	private int puntuacion;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +26,11 @@ public class PlayerCOntroller : MonoBehaviour {
 	void Update () {
 		Movimiento ();
 		//Acciones ();
+		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+		puntuacion = Convert.ToInt32(puntuacionText.text);
+		if (puntuacion == -2) {
+			//Destroy (this.gameObject);
+		}
 	}
 
 	void Movimiento(){

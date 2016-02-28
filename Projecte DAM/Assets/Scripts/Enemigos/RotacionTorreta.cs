@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+
 
 public class RotacionTorreta : MonoBehaviour {
 
 	//Script para las rotaciones de las torretas
-	float rotationX, rotationY, rotationZ;
+	private TextMesh puntuacionText;
+	private int puntuacion;
+	private float rotationX, rotationY, rotationZ;
 
 	// Use this for initialization
 	void Start () {
@@ -28,5 +32,9 @@ public class RotacionTorreta : MonoBehaviour {
 	private IEnumerator KillOnAnimationEnd() {
 		yield return new WaitForSeconds (0.167f);
 		Destroy (gameObject);
+		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+		puntuacion = Convert.ToInt32(puntuacionText.text);
+		puntuacion = puntuacion + 10;
+		puntuacionText.text = puntuacion+"";
 	}
 }
