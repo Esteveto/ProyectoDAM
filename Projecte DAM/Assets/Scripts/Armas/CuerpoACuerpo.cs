@@ -14,6 +14,7 @@ public class CuerpoACuerpo : MonoBehaviour {
 	Vector2 actualPos;
 	Vector2 avancePos = new Vector2(0f,0f);
 	Vector2 quieto = new Vector2 (0f,0f);
+	BoxCollider2D boxCollider;
 
 	// Use this for initialization
 	void Start () {
@@ -21,11 +22,13 @@ public class CuerpoACuerpo : MonoBehaviour {
 		anim = this.GetComponent<Animator> ();
 		player = GameObject.Find("Personaje principal(Quieto)");
 		rigidPlayer = player.GetComponent<Rigidbody2D>();
+		boxCollider = this.GetComponent<BoxCollider2D> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Acciones ();
+		Ataque ();
 	}
 	/*/Metodo para las acciones/*/
 	void Acciones(){
@@ -56,4 +59,19 @@ public class CuerpoACuerpo : MonoBehaviour {
 			limitadorBoton--;
 		}
 	}
-}
+	void Ataque (){
+		if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("Ataque") == true) {
+			boxCollider.enabled = true;
+		} else {
+			boxCollider.enabled = false;
+		}
+	}
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Enemigo") {
+			col.gameObject.GetComponent<Animator> ().SetFloat ("Explosion", 1f);
+			//Destroy (col.gameObject);
+		}
+				
+		}
+	}
+	

@@ -34,7 +34,7 @@ public class BalaJugador : MonoBehaviour {
 			puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
 			puntuacion = Convert.ToInt32(puntuacionText.text);
 			puntuacion = puntuacion - 1;
-			puntuacionText.text = puntuacion+"";
+			//puntuacionText.text = puntuacion+"";
 		} else {
 			//print ("Pared");
 			animExplosion.SetFloat ("explosion", 1f);

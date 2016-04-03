@@ -4,8 +4,8 @@ using System;
 
 public class Vida : MonoBehaviour {
 
-	private TextMesh puntuacionText;
-	private int puntuacion;
+	private TextMesh VidaText;
+	private int vida;
 
 
 	// Use this for initialization
@@ -18,11 +18,14 @@ public class Vida : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2D(){
-		Destroy (this.gameObject);
-		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
-			puntuacion = Convert.ToInt32(puntuacionText.text);
-			puntuacion = puntuacion + 1;
-			puntuacionText.text = puntuacion+"";
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Player") {
+			Destroy (this.gameObject);
+			VidaText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
+			vida = Convert.ToInt32(VidaText.text);
+			vida = vida + 1;
+			VidaText.text = vida+"";
+		}
+
 	}
 }

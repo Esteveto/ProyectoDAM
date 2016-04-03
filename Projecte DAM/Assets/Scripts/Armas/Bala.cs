@@ -12,6 +12,8 @@ public class Bala : MonoBehaviour {
 	private Animator animExplosion;
 	private TextMesh puntuacionText;
 	private int puntuacion;
+	private TextMesh VidasText;
+	private int vidas;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,10 @@ public class Bala : MonoBehaviour {
 			animExplosion.SetFloat ("explosion", 1f);
 		} else {
 			animExplosion.SetFloat ("explosion", 1f);
+			VidasText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
+			vidas = Convert.ToInt32(VidasText.text);
+			vidas = vidas - 1;
+			VidasText.text = vidas+"";
 			//Destroy (col.gameObject);
 		}
 	}

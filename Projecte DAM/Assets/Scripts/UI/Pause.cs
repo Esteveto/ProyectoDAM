@@ -13,7 +13,7 @@ public class Pause : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnApplicationPause (bool pauseStatus){
@@ -24,12 +24,11 @@ public class Pause : MonoBehaviour {
 
 		paused = !paused;
 
-
 		if (paused) {
 			//OnPauseGame ();
-			//Time.timeScale = 0;
+			Time.timeScale = 0.0f;
 		} else if (!paused) {
-			Time.timeScale = 1;
+			Time.timeScale = 1.0f;
 		}
 
 	}

@@ -13,8 +13,8 @@ public class PlayerCOntroller : MonoBehaviour {
 	private Vector2 avancePos=new Vector2(0f,0f);
 	private int limitadorboton = 0;
 	private int limitadorboton2 = 0;
-	private TextMesh puntuacionText;
-	private int puntuacion;
+	private TextMesh vidasText;
+	private int vidas;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +26,11 @@ public class PlayerCOntroller : MonoBehaviour {
 	void Update () {
 		Movimiento ();
 		//Acciones ();
-		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
-		puntuacion = Convert.ToInt32(puntuacionText.text);
-		if (puntuacion == -2) {
-			//Destroy (this.gameObject);
+		vidasText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
+		vidas = Convert.ToInt32(vidasText.text);
+		if (vidas == 0) {
+			Destroy (this.gameObject);
+			Application.LoadLevel ("Home");
 		}
 	}
 
