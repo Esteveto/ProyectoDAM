@@ -43,7 +43,8 @@ public class RankingMenu : MonoBehaviour {
 
 	void setPuntuaciones(){
 		if (leido == false) {
-			string[] lines = System.IO.File.ReadAllLines ("Puntuaciones.txt");
+			//string[] lines = System.IO.File.ReadAllLines ("Puntuaciones.txt");
+			string[] lines = readFile();
 			puntuaciones = new int[lines.Length];
 			Array.Sort (lines);
 			for (int i = 1; i < lines.Length; i++) {
@@ -51,15 +52,31 @@ public class RankingMenu : MonoBehaviour {
 			}
 			leido = true;
 			Array.Sort (puntuaciones);
+			for (int i = 0; i < puntuaciones.Length; i++) {
+				print (puntuaciones [i]);
+			}
 		}
 
 		puntuacion1S = puntuaciones[puntuaciones.Length-1] + "";
 		puntuacion2S = puntuaciones[puntuaciones.Length-2] + "";
 		puntuacion3S = puntuaciones[puntuaciones.Length-3] + "";
 		puntuacion4S = puntuaciones[puntuaciones.Length-4] + "";
-		puntuacion5S = puntuaciones[puntuaciones.Length-5] + "";		
+		puntuacion5S = puntuaciones [puntuaciones.Length - 5] + "";
 	}
 
+	string[] readFile(){
+		print (Application.persistentDataPath + @"/puntuaciones.txt");
+		TextReader td = new StreamReader (Application.persistentDataPath + @"/puntuaciones.txt");
+		String line = td.ReadLine ();
+		td.Close();
+
+		/*if (line.Split (';').Length < 5) {
+			TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/puntuaciones.txt", true);
+			tw.Write("0;0;0;0;0;");
+			tw.Close();
+		}*/
+		return line.Split(';');
+	}
 
 
     void OnGUI()

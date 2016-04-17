@@ -30,7 +30,7 @@ public class SpawnBala : Disparo {
 	{
 		Instantiate (Bala, spawnBala.position, spawnBala.rotation);
 
-		rigidPlayer.MovePosition (rigidPlayer.position - avancePos);
+		//rigidPlayer.MovePosition (rigidPlayer.position - avancePos);
 	}
 	//metodo que devuelve la renderizacion del sprite del disparo
 	protected override SpriteRenderer spriteRender ()

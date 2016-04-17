@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class HomeMenu : MonoBehaviour {
 
@@ -21,6 +22,15 @@ public class HomeMenu : MonoBehaviour {
 
     public int MenuButtonsHeight;
     public int MenuButtonsWidth;
+
+	void Start(){
+		if (!System.IO.File.Exists (Application.persistentDataPath +@"/puntuaciones.txt")) {
+			TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/puntuaciones.txt", true);
+			tw.Write("0;0;0;0;0;");
+			tw.Close();
+		}
+
+	}
 
     void OnGUI()
     {

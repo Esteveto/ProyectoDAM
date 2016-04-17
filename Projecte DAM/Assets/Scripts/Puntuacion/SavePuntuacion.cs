@@ -21,11 +21,17 @@ public class SavePuntuacion : MonoBehaviour {
 		vidas = Convert.ToInt32(VidasText.text);
 		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
 		if (vidas == 0 && escrito == false) {
-			using (StreamWriter sw = File.AppendText("Puntuaciones.txt")) {
-				sw.WriteLine (puntuacionText.text);
+			/*using (StreamWriter sw = File.AppendText("Puntuaciones.txt")) {
+				sw.WriteLine (puntuacionText.text);*/
+			writeFile (puntuacionText.text);
 				escrito = true;
 			}
 		}
 
+
+	public void writeFile(String puntuacion){
+		TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/puntuaciones.txt", true);
+		tw.Write(puntuacion+";");
+		tw.Close();
 	}
 }

@@ -42,7 +42,7 @@ public class CuerpoACuerpo : MonoBehaviour {
 		/*/Si se pulsa el boton y el limitador esta a 0 ralizar la animacion modificando el parametro que ejecuta la animacion(Ataque)/*/
 		if ((attacking||Input.GetKey(KeyCode.Q)) && (limitadorBoton==0)) {
 			//print ("Attack");
-			rigidPlayer.MovePosition (rigidPlayer.position + avancePos);
+			//rigidPlayer.MovePosition (rigidPlayer.position + avancePos);
 
 			anim.SetFloat ("Ataque", 1f);
 			//print (anim.GetFloat ("Ataque"));
