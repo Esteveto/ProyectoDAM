@@ -29,18 +29,25 @@ public class BalaJugador : MonoBehaviour {
 			col.gameObject.GetComponent<Animator> ().SetFloat ("Explosion", 1f);
 			//Destroy (col.gameObject);
 		} else if (col.gameObject.tag == "Player") {
-		} else if (col.gameObject.tag == "Pared") {
+		} else if (col.gameObject.tag == "Pared" ) {
 			animExplosion.SetFloat ("explosion", 1f);
-			puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+			/*puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
 			puntuacion = Convert.ToInt32(puntuacionText.text);
 			puntuacion = puntuacion - 1;
-			//puntuacionText.text = puntuacion+"";
+			puntuacionText.text = puntuacion+"";*/
 		} else {
 			//print ("Pared");
 			animExplosion.SetFloat ("explosion", 1f);
 			//Destroy (this.gameObject);
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Boss1") {
+			animExplosion.SetFloat ("explosion", 1f);
+		}
+	}
+
 	//Se comprueba que la animacion de la explosion ha sido realizada y si es asi se destruye la bala.
 	void Update(){
 		if (animExplosion.GetCurrentAnimatorStateInfo (0).IsName ("ExplosionBala") == true) {

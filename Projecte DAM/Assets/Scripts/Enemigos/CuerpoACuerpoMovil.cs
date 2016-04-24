@@ -9,6 +9,8 @@ public class CuerpoACuerpoMovil : MonoBehaviour {
 	private Transform player;
 	private TextMesh puntuacionText;
 	private int puntuacion;
+	private TextMesh VidasText;
+	private int vidas;
 
 	public float velocidad;
 
@@ -37,6 +39,10 @@ public class CuerpoACuerpoMovil : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			print ("playerhit");
 			//Destroy (col.gameObject);
+			VidasText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
+			vidas = Convert.ToInt32(VidasText.text);
+			vidas = vidas - 1;
+			VidasText.text = vidas+"";
 		} else if (col.gameObject.tag == "Pared") {
 			print ("pared");
 		}

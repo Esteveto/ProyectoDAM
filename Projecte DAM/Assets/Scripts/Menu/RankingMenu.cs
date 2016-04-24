@@ -39,6 +39,7 @@ public class RankingMenu : MonoBehaviour {
 		stylePuntuacion = new GUIStyle ();
 		stylePuntuacion.font = Font;
 		stylePuntuacion.alignment = TextAnchor.MiddleCenter;
+
 	}
 
 	void setPuntuaciones(){
@@ -92,7 +93,7 @@ public class RankingMenu : MonoBehaviour {
 		GUI.TextArea(new Rect(Screen.width * Puntuaciones4X, Screen.height * Puntuaciones4Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion4S, stylePuntuacion);
 		GUI.TextArea(new Rect(Screen.width * Puntuaciones5X, Screen.height * Puntuaciones5Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion5S, stylePuntuacion);
 
-		if (GUI.Button(new Rect(Screen.width * BackButtonX, Screen.height * BackButtonY,Screen.width /  BackButtonWidth,Screen.height /  BackButtonHeight), ""))
+		if (GUI.Button(new Rect(Screen.width * BackButtonX, Screen.height * BackButtonY,Screen.width /  BackButtonWidth,Screen.height /  BackButtonHeight),"", ""))
         {
             print("Atras");
             Application.LoadLevel("Home");

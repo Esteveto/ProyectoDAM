@@ -39,28 +39,28 @@ public class HomeMenu : MonoBehaviour {
 
         /*/Normal mode Button/*/
 
-		if (GUI.Button(new Rect(Screen.width * normalModeButtonX, Screen.height * normalModeButtonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight), ""))
+		if (GUI.Button(new Rect(Screen.width * normalModeButtonX, Screen.height * normalModeButtonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),"", ""))
         {
             print("Normal mode");
             Application.LoadLevel("NormalMode");
         }
 
         /*/Boss Mode button/*/
-		if (GUI.Button(new Rect(Screen.width * bossModeButtonX, Screen.height * bossModeByttonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),  ""))
+		if (GUI.Button(new Rect(Screen.width * bossModeButtonX, Screen.height * bossModeByttonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),"",  ""))
         {
             print("Boss mode");
             Application.LoadLevel("BossMode");
         }
 
         /*/Ranking Button/*/
-		if (GUI.Button(new Rect(Screen.width * RankingButtonX, Screen.height * RankingButtonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight), ""))
+		if (GUI.Button(new Rect(Screen.width * RankingButtonX, Screen.height * RankingButtonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),"", ""))
         {
             print("Ranking");
             Application.LoadLevel("Ranking");
         }
 
         /*/Exit Button/*/
-		if (GUI.Button(new Rect(Screen.width * ExitButtonX, Screen.height * ExitButtonY,Screen.width /  ExitButtonWidth, Screen.height / ExitButtonHeight), ""))
+		if (GUI.Button(new Rect(Screen.width * ExitButtonX, Screen.height * ExitButtonY,Screen.width /  ExitButtonWidth, Screen.height / ExitButtonHeight),"", ""))
         {
             print("Exit");
             Application.Quit();
