@@ -30,7 +30,7 @@ public class RankingMenu : MonoBehaviour {
 	private String puntuacion4S;
 	private String puntuacion5S;
 
-	int[] puntuaciones;
+	private int[] puntuaciones;
 
 	private bool leido = false;
 	private GUIStyle stylePuntuacion;
@@ -39,7 +39,6 @@ public class RankingMenu : MonoBehaviour {
 		stylePuntuacion = new GUIStyle ();
 		stylePuntuacion.font = Font;
 		stylePuntuacion.alignment = TextAnchor.MiddleCenter;
-
 	}
 
 	void setPuntuaciones(){
@@ -71,11 +70,6 @@ public class RankingMenu : MonoBehaviour {
 		String line = td.ReadLine ();
 		td.Close();
 
-		/*if (line.Split (';').Length < 5) {
-			TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/puntuaciones.txt", true);
-			tw.Write("0;0;0;0;0;");
-			tw.Close();
-		}*/
 		return line.Split(';');
 	}
 
@@ -87,12 +81,12 @@ public class RankingMenu : MonoBehaviour {
 
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), backgroundTexture);
 
-		GUI.TextArea(new Rect(Screen.width * Puntuaciones1X, Screen.height * Puntuaciones1Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion1S, stylePuntuacion);
-		GUI.TextArea(new Rect(Screen.width * Puntuaciones2X, Screen.height * Puntuaciones2Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion2S, stylePuntuacion);
-		GUI.TextArea(new Rect(Screen.width * Puntuaciones3X, Screen.height * Puntuaciones3Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion3S, stylePuntuacion);
-		GUI.TextArea(new Rect(Screen.width * Puntuaciones4X, Screen.height * Puntuaciones4Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion4S, stylePuntuacion);
-		GUI.TextArea(new Rect(Screen.width * Puntuaciones5X, Screen.height * Puntuaciones5Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion5S, stylePuntuacion);
 
+		GUI.Label(new Rect(Screen.width * Puntuaciones1X, Screen.height * Puntuaciones1Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion1S, stylePuntuacion);
+		GUI.Label(new Rect(Screen.width * Puntuaciones2X, Screen.height * Puntuaciones2Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion2S, stylePuntuacion);
+		GUI.Label(new Rect(Screen.width * Puntuaciones3X, Screen.height * Puntuaciones3Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion3S, stylePuntuacion);
+		GUI.Label(new Rect(Screen.width * Puntuaciones4X, Screen.height * Puntuaciones4Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion4S, stylePuntuacion);
+		GUI.Label(new Rect(Screen.width * Puntuaciones5X, Screen.height * Puntuaciones5Y,Screen.width /  PuntuacionesWidth,Screen.height /  PuntuacionesHeight),puntuacion5S, stylePuntuacion);
 		if (GUI.Button(new Rect(Screen.width * BackButtonX, Screen.height * BackButtonY,Screen.width /  BackButtonWidth,Screen.height /  BackButtonHeight),"", ""))
         {
             print("Atras");

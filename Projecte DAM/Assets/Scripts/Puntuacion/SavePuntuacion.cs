@@ -26,7 +26,7 @@ public class SavePuntuacion : MonoBehaviour {
 			/*using (StreamWriter sw = File.AppendText("Puntuaciones.txt")) {
 				sw.WriteLine (puntuacionText.text);*/
 			writeFile (puntuacionText.text);
-				escrito = true;
+			escrito = true;
 			}
 		}
 
@@ -40,14 +40,26 @@ public class SavePuntuacion : MonoBehaviour {
 		puntuaciones.Sort ();
 		//Array.Sort (puntuaciones);
 		print(puntuaciones.Count);
-		print(puntuaciones[1]);
-		int puntMinima = Convert.ToInt32(puntuaciones[1]);
+		//print(puntuaciones[1]);
+		//print (puntuaciones [puntuaciones.Count - 1]);
+		int puntMinima = 5000000;
+		int posMinima = 0;
+		for (int i = 1; i < puntuaciones.Count; i++) {
+			print (puntuaciones [i]);
+			if (Convert.ToInt32 (puntuaciones[i]) < puntMinima) {
+				puntMinima = Convert.ToInt32 (puntuaciones[i]);
+				posMinima = i;
+			}
+		}
+		print(puntMinima);
 
 		if (Convert.ToInt32 (puntuacion) > puntMinima) {
 			puntuaciones.Add (puntuacion);
 			puntuaciones.Sort ();
 			//Array.Sort (puntuaciones);
-			puntuaciones.Remove (puntuaciones [1]);
+			if (posMinima != 0) {
+				puntuaciones.Remove (puntuaciones [posMinima]);
+			}
 		}
 
 		TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/puntuaciones.txt");

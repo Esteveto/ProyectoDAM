@@ -15,6 +15,8 @@ public class PlayerCOntroller : MonoBehaviour {
 	private int limitadorboton2 = 0;
 	private TextMesh vidasText;
 	private int vidas;
+	private TextMesh puntuacionTextMesh;
+	private string puntuacionString;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +32,11 @@ public class PlayerCOntroller : MonoBehaviour {
 		vidas = Convert.ToInt32(vidasText.text);
 		if (vidas == 0) {
 			Destroy (this.gameObject);
-			Application.LoadLevel ("Home");
+			puntuacionTextMesh = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+			puntuacionString = puntuacionTextMesh.text;
+			InfoPuntuacion info = new InfoPuntuacion ();
+			info.setPuntuacion(Convert.ToInt32(puntuacionString));
+			Application.LoadLevel ("FinalPartida");
 		}
 	}
 

@@ -23,7 +23,7 @@ public class BalaJugador : MonoBehaviour {
 
 	//Metodo para detectar la collision con la pared y ejecutar la animacion de la explosion
 	void OnCollisionEnter2D (Collision2D col){
-		if (col.gameObject.tag == "Enemigo") {
+		if (col.gameObject.tag == "Enemigo" || col.gameObject.tag == "Boss1Torreta") {
 			//print("Enemigo");
 			animExplosion.SetFloat ("explosion", 1f);
 			col.gameObject.GetComponent<Animator> ().SetFloat ("Explosion", 1f);
@@ -43,8 +43,9 @@ public class BalaJugador : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Boss1") {
+		if (col.gameObject.tag == "Boss1Brazo1" || col.gameObject.tag == "Boss1Brazo2" || col.gameObject.tag == "Boss1Brazo3" || col.gameObject.tag == "Boss1Brazo4" || col.gameObject.tag == "Boss1Brazo5") {
 			animExplosion.SetFloat ("explosion", 1f);
+			col.gameObject.GetComponent<Animator> ().SetFloat ("Explosion", 1f);
 		}
 	}
 
