@@ -19,8 +19,11 @@ public class RotacionTorreta : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.rotation = Quaternion.Euler (rotationX,rotationY,rotationZ++);
-		Destruccion ();
+		if (Time.timeScale == 1) {
+			this.transform.rotation = Quaternion.Euler (rotationX,rotationY,rotationZ++);
+			Destruccion ();
+		}
+
 	}
 
 	void Destruccion () {

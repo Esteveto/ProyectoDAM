@@ -26,17 +26,10 @@ public class PlayerCOntroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Movimiento ();
-		//Acciones ();
-		vidasText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
-		vidas = Convert.ToInt32(vidasText.text);
-		if (vidas == 0) {
-			Destroy (this.gameObject);
-			puntuacionTextMesh = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
-			puntuacionString = puntuacionTextMesh.text;
-			InfoPuntuacion info = new InfoPuntuacion ();
-			info.setPuntuacion(Convert.ToInt32(puntuacionString));
-			Application.LoadLevel ("FinalPartida");
+		if (Time.timeScale == 1) {
+			Movimiento ();
+			Muerte ();
+			//Acciones ();
 		}
 	}
 
@@ -57,6 +50,19 @@ public class PlayerCOntroller : MonoBehaviour {
 			anim.SetFloat ("Movement", 1f);
 		} else {
 			anim.SetFloat ("Movement", 0f);
+		}
+	}
+
+	void Muerte(){
+		vidasText = GameObject.FindGameObjectWithTag ("Vidas").GetComponent<TextMesh>();
+		vidas = Convert.ToInt32(vidasText.text);
+		if (vidas == 0) {
+			Destroy (this.gameObject);
+			puntuacionTextMesh = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+			puntuacionString = puntuacionTextMesh.text;
+			InfoPuntuacion info = new InfoPuntuacion ();
+			info.setPuntuacion(Convert.ToInt32(puntuacionString));
+			Application.LoadLevel ("FinalPartida");
 		}
 	}
 

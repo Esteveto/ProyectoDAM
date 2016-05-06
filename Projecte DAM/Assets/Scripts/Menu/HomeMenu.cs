@@ -29,6 +29,11 @@ public class HomeMenu : MonoBehaviour {
 			tw.Write("0;0;0;0;0;");
 			tw.Close();
 		}
+		if(!System.IO.File.Exists (Application.persistentDataPath +@"/infoBosses.txt")) {
+			TextWriter tw = new StreamWriter(Application.persistentDataPath+@"/infoBosses.txt", true);
+			tw.Write ("false");
+			tw.Close ();
+		}
 
 	}
 
@@ -46,7 +51,7 @@ public class HomeMenu : MonoBehaviour {
         }
 
         /*/Boss Mode button/*/
-		if (GUI.Button(new Rect(Screen.width * bossModeButtonX, Screen.height * bossModeByttonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),"",  ""))
+		if (GUI.Button(new Rect(Screen.width * bossModeButtonX, Screen.height * bossModeByttonY, Screen.width / MenuButtonsWidth, Screen.height / MenuButtonsHeight),"", ""))
         {
             print("Boss mode");
             Application.LoadLevel("BossMode");

@@ -26,9 +26,9 @@ public class Pause : MonoBehaviour {
 
 		if (paused) {
 			//OnPauseGame ();
-			Time.timeScale = 0.0f;
+			Time.timeScale = 0;
 		} else if (!paused) {
-			Time.timeScale = 1.0f;
+			Time.timeScale = 1;
 		}
 
 	}

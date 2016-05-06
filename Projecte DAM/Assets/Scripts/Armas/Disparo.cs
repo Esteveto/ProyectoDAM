@@ -15,8 +15,10 @@ public abstract class Disparo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Acciones ();
-		retroceso ();
+		if (Time.timeScale == 1) {
+			Acciones ();
+			retroceso ();
+		}
 	}
 	//MEtodo que se encarga de llamar a los metodos de disparar, retroceso y sprite render cuando se pulsan los botones.
 	//el boton tiene un limitador para que no se pueda pulsar simpre que se quiera.

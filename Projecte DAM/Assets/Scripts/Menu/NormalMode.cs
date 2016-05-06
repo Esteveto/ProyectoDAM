@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class NormalMode : MonoBehaviour {
 
@@ -16,6 +17,11 @@ public class NormalMode : MonoBehaviour {
 	private PolygonCollider2D brazo4col;
 	private PolygonCollider2D brazo5col;
 	private BoxCollider2D torretaCol;
+	private bool boss1Activado;
+	private GameObject generadorEnemigos;
+
+	private TextMesh puntuacionText;
+	private int puntuacion;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +38,8 @@ public class NormalMode : MonoBehaviour {
 		brazo4col = GameObject.FindGameObjectWithTag ("Boss1Brazo4").GetComponent<PolygonCollider2D> ();
 		brazo5col = GameObject.FindGameObjectWithTag ("Boss1Brazo5").GetComponent<PolygonCollider2D> ();
 		torretaCol = boss1Torreta.GetComponent<BoxCollider2D> ();
+		boss1Activado = false;
+		generadorEnemigos = GameObject.FindGameObjectWithTag ("GeneradorEnemigos");
 
 		//print (boss1Disparo2);
 
@@ -49,8 +57,9 @@ public class NormalMode : MonoBehaviour {
 		InfoBoss1.setCollider5 (brazo5col);
 		InfoBoss1.setTorretaCollider (torretaCol);
 
-		//boss1.SetActive (false);
+		boss1.SetActive (false);
 
+		boss1Disparo1.SetActive (false);
 		boss1Disparo2.SetActive (false);
 		boss1Disparo3.SetActive (false);
 		boss1Disparo4.SetActive (false);
@@ -66,6 +75,13 @@ public class NormalMode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		puntuacionText = GameObject.FindGameObjectWithTag ("Puntuacion").GetComponent<TextMesh>();
+		puntuacion = Convert.ToInt32(puntuacionText.text);
+		if (puntuacion >= 50 && boss1Activado == false) {
+			generadorEnemigos.GetComponent<GeneradorEnemigos> ().activo = false;
+			boss1.SetActive (true);
+			boss1Disparo1.SetActive (true);
+			boss1Activado = true;
+		}
 	}
 }

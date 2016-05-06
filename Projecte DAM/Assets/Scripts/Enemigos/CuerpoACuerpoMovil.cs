@@ -22,8 +22,10 @@ public class CuerpoACuerpoMovil : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Movimiento ();
-		Destruccion ();
+		if (Time.timeScale == 1) {
+			Movimiento ();
+			Destruccion ();
+		}
 	}
 
 	void Movimiento(){

@@ -16,6 +16,7 @@ public class InfoBoss1 : MonoBehaviour {
 	public static PolygonCollider2D brazo4col;
 	public static PolygonCollider2D brazo5col;
 	public static BoxCollider2D torretaCol;
+	public static bool eliminado = false;
 
 	public static void setBoss1(GameObject boss){
 		boss1 = boss;
@@ -69,6 +70,10 @@ public class InfoBoss1 : MonoBehaviour {
 		torretaCol = col;
 	}
 
+	public static void setEliminado (bool el){
+		eliminado = el;
+	}
+
 	public static GameObject getBoss1(){
 		return boss1;
 	}
@@ -112,6 +117,10 @@ public class InfoBoss1 : MonoBehaviour {
 
 	public static BoxCollider2D getColliderTorreta(){
 		return torretaCol;
+	}
+
+	public static bool getEliminado(){
+		return eliminado;
 	}
 
 }

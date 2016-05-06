@@ -16,7 +16,10 @@ public class SpawnBalaTorreta : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		DisparoBala ();
+		if (Time.timeScale == 1) {
+			DisparoBala ();
+		}
+
 	}
 
 	//Metodo que hace que la torreta dispare

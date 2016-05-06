@@ -27,8 +27,10 @@ public class CuerpoACuerpo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Acciones ();
-		Ataque ();
+		if (Time.timeScale == 1) {
+			Acciones ();
+			Ataque ();
+		}
 	}
 	/*/Metodo para las acciones/*/
 	void Acciones(){
@@ -67,7 +69,7 @@ public class CuerpoACuerpo : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Enemigo") {
+		if (col.gameObject.tag == "Enemigo" || col.gameObject.tag == "Boss1Torreta") {
 			col.gameObject.GetComponent<Animator> ().SetFloat ("Explosion", 1f);
 			//Destroy (col.gameObject);
 		}
